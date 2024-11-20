@@ -1,0 +1,12 @@
+electron app is made up of 2 processs
+main process which run in nodejs environment and therefore has access to the nodejs api aka privileged operations
+renderere process which runs in chromium environment has dom and other browser stuff
+main process run nodejs stuff
+renderer process run browserwindow.
+
+ONe tricky part is 
+rendere process has two parts 
+preload scripts and entrypoint for ui
+both are connected via contextbridge
+also preload has access to ipc channel 
+so both main and renderer can now talk via this channel.
